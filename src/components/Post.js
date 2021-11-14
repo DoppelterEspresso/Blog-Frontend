@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import CommentForm from "./CommentForm";
 
 const Post = () => {
     const { postid } = useParams();
-    const [ post, setPost] = useState();
+    const [post, setPost] = useState([]);
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
@@ -23,7 +24,7 @@ const Post = () => {
             .catch(err => {
                 console.log(err)
             })
-    }, [])
+    }, [postid])
 
     let commentList =  [];
 
@@ -45,6 +46,8 @@ const Post = () => {
             </div>
             <hr />
             {commentList}
+            <hr />
+            <CommentForm />
         </div>
     )
 

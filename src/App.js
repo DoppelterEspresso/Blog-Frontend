@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
 
 const App = () => {
@@ -9,7 +10,6 @@ const App = () => {
       .then(response => response.json())
       .then((result) => {
         setPosts(result);
-        console.log(posts)
       })
       .catch(err => {
         console.log(err)
@@ -17,13 +17,18 @@ const App = () => {
   }, [])
 
   let postList = []
+  console.log(posts)
+
 
   for (let post of posts) {
     postList.push(
-      <div key={post.title}>
-        <h2>{post.title}</h2>
-        <p>{post.text}</p>
-      </div>
+      <Link to={`/posts/${post._id}`}>
+        <div key={post._id}>
+          <h2>{post.title}</h2>
+          <p>{post.text}</p>
+          <hr />
+        </div>
+      </Link>
     )
   }
 
