@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ReactHtmlParser, {processNodes, convertNodeToElement, htmlparser2 } from "react-html-parser";
 import './App.css';
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
   }, [])
 
   let postList = []
-  console.log(posts)
+  //console.log(posts)
 
 
   for (let post of posts) {
@@ -25,7 +26,7 @@ const App = () => {
       <Link to={`/posts/${post._id}`}>
         <div key={post._id}>
           <h2>{post.title}</h2>
-          <p>{post.text}</p>
+          <div>{ ReactHtmlParser(post.text) }</div>
           <hr />
         </div>
       </Link>

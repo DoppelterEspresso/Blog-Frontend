@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CommentForm from "./CommentForm";
+import ReactHtmlParser, {processNodes, convertNodeToElement, htmlparser2 } from "react-html-parser";
+
 
 const Post = () => {
     const { postid } = useParams();
@@ -41,7 +43,7 @@ const Post = () => {
         <div>
             <div>
                 <h2>{post.title}</h2>
-                <p>{post.text}</p>
+                <div>{ ReactHtmlParser(post.text) }</div>
                 <span>{post.timestamp}</span>
             </div>
             <hr />
