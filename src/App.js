@@ -28,7 +28,6 @@ const App = () => {
         <div key={post._id} className="post-container">
           <h2>{post.title}</h2>
           <div>{ ReactHtmlParser(post.text) }</div>
-          <hr />
         </div>
       </Link>
     )
