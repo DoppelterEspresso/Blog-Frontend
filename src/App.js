@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ReactHtmlParser, {processNodes, convertNodeToElement, htmlparser2 } from "react-html-parser";
 import './App.css';
+import Header from './components/Header';
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -23,8 +24,8 @@ const App = () => {
 
   for (let post of posts) {
     postList.push(
-      <Link to={`/posts/${post._id}`}>
-        <div key={post._id}>
+      <Link to={`/posts/${post._id}`} className="post-link">
+        <div key={post._id} className="post-container">
           <h2>{post.title}</h2>
           <div>{ ReactHtmlParser(post.text) }</div>
           <hr />
@@ -35,7 +36,12 @@ const App = () => {
 
   return(
     <div>
-      {postList}
+      <Header />
+      <div className="flex-container content">
+        <div className="all-posts">
+          {postList}
+        </div>
+      </div>
     </div>
   )
 }
