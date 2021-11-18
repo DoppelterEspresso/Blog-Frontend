@@ -40,6 +40,8 @@ const Post = () => {
         )
     }
 
+    console.log(post)
+
     return (
         <div>
             <Header />
@@ -47,7 +49,7 @@ const Post = () => {
                 <div id="post">
                     <h2>{post.title}</h2>
                     <div>{ ReactHtmlParser(post.text) }</div>
-                    <span>{post.timestamp}</span>
+                    <span>{post.date_format}</span>
                 </div>
                 <hr />
                 <h2>Comments:</h2>
