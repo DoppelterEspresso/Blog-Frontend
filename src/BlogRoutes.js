@@ -5,7 +5,7 @@ import About from "./components/About";
 
 const BlogRoutes = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route exact path="/" element={<App />} />
         <Route exact path="/posts/:postid" element={<Post />} />
