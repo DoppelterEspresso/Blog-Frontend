@@ -16,7 +16,6 @@ header {
   color: black;
 }
 
-
 .post-link {
   color: black;
   text-decoration: none;
@@ -37,7 +36,7 @@ header {
 }
 
 .all-posts {
-  width: 40%;
+  max-width: 80%;
 }
 
 .all-comments {
@@ -100,7 +99,6 @@ header {
 h3 {
   text-decoration: underline black;
 }
-
 
 .sticky {
   position: fixed;
