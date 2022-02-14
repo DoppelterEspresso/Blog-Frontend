@@ -38,8 +38,8 @@ const Post = () => {
 
   for (let comment of comments) {
     commentList.push(
-      <div key={comment._id} className="comment">
-        <h3>{comment.author}:</h3>
+      <div key={comment._id} className="p-4 bg-slate-300 mb-10 rounded-sm">
+        <h3 className="text-xl font-bold">{comment.author}:</h3>
         <p>{comment.text}</p>
       </div>
     );
@@ -50,17 +50,21 @@ const Post = () => {
   return (
     <div>
       <Header />
-      <div className="flex-container content">
-        <div id="post">
-          <h2>{post.title}</h2>
+      <div className="flex flex-col md:w-1/2 mx-auto p-6 bg-slate-200 rounded">
+        <div id="post" className="w-11/12 mx-auto">
+          <h2 className="text-3xl underline mb-2">{post.title}</h2>
           <div>{ReactHtmlParser(post.text)}</div>
-          <span>{post.date_format}</span>
+          <span className="text-lg mt-4 rounded-lg px-4 bg-gray-300">
+            {post.date_format}
+          </span>
         </div>
         <hr />
-        <h2>Comments:</h2>
-        <div className="all-comments">{commentList}</div>
-        <hr />
-        <CommentForm />
+        <div className="my-8">
+          <h2 className="text-2xl font-bold ml-6">Comments:</h2>
+          <div className="p-6">{commentList}</div>
+          <hr />
+          <CommentForm />
+        </div>
       </div>
     </div>
   );

@@ -3,12 +3,13 @@ import { useParams } from "react-router";
 const CommentForm = () => {
   let { postid } = useParams();
   return (
-    <div id="comment-form-container">
-      <h1>Leave a Comment</h1>
+    <div className="p-8">
+      <h1 className="text-2xl mb-4">Leave a Comment</h1>
       <form
         action={`https://morning-escarpment-88966.herokuapp.com/api/posts/${postid}/comments`}
         method="POST"
         id="comment-form"
+        className="flex flex-col"
       >
         <label htmlFor="author" /> Your Name
         <input
@@ -26,7 +27,11 @@ const CommentForm = () => {
           className="comment-input"
         ></textarea>
         <input type="hidden" name="postUrl" value={window.location.href} />
-        <button type="submit" id="comment-submit">
+        <button
+          type="submit"
+          id="comment-submit"
+          className="mt-4 px-4 py-2 bg-sky-900 text-xl text-white md:w-1/3 mx-auto"
+        >
           Submit Comment
         </button>
       </form>

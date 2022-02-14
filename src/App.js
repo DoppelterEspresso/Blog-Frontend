@@ -5,7 +5,7 @@ import ReactHtmlParser, {
   convertNodeToElement,
   htmlparser2,
 } from "react-html-parser";
-import "./App.css";
+//import "./App.css";
 import Header from "./components/Header";
 
 const App = () => {
@@ -27,9 +27,10 @@ const App = () => {
 
   for (let post of posts) {
     postList.push(
-      <Link to={`/posts/${post._id}`} className="post-link">
-        <div key={post._id} className="post-container">
-          <h2>{post.title}</h2>
+      <Link to={`/posts/${post._id}`}>
+        <div key={post._id} className="h-fit px-6 py-4 bg-slate-200 rounded-sm">
+          <h2 className="text-3xl font-bold">{post.title}</h2>
+          <hr className="w-4/5 h-1 bg-gray-400 mb-4"></hr>
           <div>{ReactHtmlParser(post.text)}</div>
         </div>
       </Link>
@@ -39,8 +40,8 @@ const App = () => {
   return (
     <div>
       <Header />
-      <div className="flex-container content">
-        <div className="all-posts">{postList}</div>
+      <div className="flex justify-center w-2/3 mx-auto">
+        <div className="flex flex-col md:w-1/2 gap-6">{postList}</div>
       </div>
     </div>
   );
